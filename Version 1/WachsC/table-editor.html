@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Table Editor</title>
+    <style>
+      td {
+        transform: translateY(30px);
+        position: relative;
+        min-width: 75px;
+        height: 20px;
+      }
+      .addedHeadCell {
+        border: 2px solid black;
+      }
+      .nonAddedHeadCell {
+        border: 2px solid rgba(0, 0, 0, 0.3);
+      }
+
+      .addedBodyCell {
+        border: 2px solid black;
+      }
+      .nonAddedBodyCell {
+        border: 2px solid rgba(0, 0, 0, 0.3);
+      }
+
+      .invisibleFormatCell {
+        border: 2px transparent;
+        min-width: 30px;
+      }
+
+      .delete-column-button {
+        position: absolute;
+        top: -30px;
+        right: 0;
+        width: 100%;
+      }
+
+      #seperator {
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HTML Table Editor</h1>
+    <p>
+      This is a very simple HTML table editor that allows you to add rows and columns with a ui like a spreadsheet<br>
+      By typing text in the last row or column, a new row or column will be added<br>
+      Once you are done, you can generate the HTML equivalent to use in your project<br>
+      <br>
+      Made by ColRealPro with ❤️
+    </p>
+
+    <!-- Example Table: -->
+    <!-- <table>
+      <thead>
+		<tr>
+		  <td class="addedHeadCell"><div contenteditable>Col 1</div></td>
+		  <td class="nonAddedHeadCell"><div contenteditable>Col 2</div></td>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+			<td class="addedBodyCell"><div contenteditable></div></td>
+			<td class="nonAddedBodyCell"><div contenteditable></div></td>
+		</tr>
+		<tr>
+			<td class="nonAddedBodyCell"><div contenteditable></div></td>
+			<td class="nonAddedBodyCell"><div contenteditable></div></td>
+		</tr>
+	  </tbody>
+    </table> -->
+
+    <!-- <button onclick="deleteRow()">❌</button> -->
+
+    <table id="editableTable">
+      <thead id="editableHead">
+        <!-- <tr>
+          <td class="addedHeadCell">
+            <button class="delete-column-button" onclick="deleteColumn()">❌</button>
+            <div contenteditable>Col 1</div>
+          </td>
+        </tr> -->
+      </thead>
+      <tbody id="editableBody"></tbody>
+    </table>
+
+    <div id="seperator"></div>
+
+    <button onclick="generateHTML()">Generate HTML</button>
+    <br>
+    <textarea id="htmlOutput" cols="80" rows="10" readonly="true"></textarea>
+
+    <script>
+      const table = document.getElementById('editableTable');
+      const head = document.getElementById('editableHead');
+      const body = document.getElementById('editableBody');
+
+      function createDeleteButton(connectedColumn) {
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = '❌';
+        
+        if (!connectedColumn) {
+          deleteButton.onclick = () => {
+            const row = deleteButton.parentElement.parentElement;
+            row.remove();
+          }
+        } else {
+          deleteButton.classList.add('delete-column-button');
+
+          deleteButton.onclick = () => {
+            const columnIndex = Array.from(deleteButton.parentElement.parentElement.children).indexOf(deleteButton.parentElement);
+
+            for (let i = 0; i < body.children.length; i++) {
+              body.children[i].children[columnIndex].remove();
+            }
+
+            deleteButton.parentElement.remove();
+          }
+        }
+
+        return deleteButton;
+      }
+
+      function setupTable() {
+        const headRow = document.createElement('tr');
+        const bodyRow = document.createElement('tr');
+
+        // create invisible cells only in the head
+
+        const invisibleHeadCell = document.createElement('td');
+        invisibleHeadCell.classList.add('invisibleFormatCell');
+        headRow.appendChild(invisibleHeadCell);
+
+        // create delete button cell in body first row
+
+        const deleteButtonCell = document.createElement('td');
+        deleteButtonCell.classList.add('invisibleFormatCell');
+        const deleteButton = createDeleteButton();
+        deleteButtonCell.appendChild(deleteButton);
+
+        deleteButtonCell.appendChild(deleteButton);
+        bodyRow.appendChild(deleteButtonCell);
+
+        // create regular cells
+
+        for (let i = 0; i < 1; i++) {
+          const headCell = document.createElement('td');
+          const bodyCell = document.createElement('td');
+
+          headCell.classList.add('addedHeadCell');
+          bodyCell.classList.add('addedBodyCell');
+
+          const headContent = document.createElement('div');
+          const bodyContent = document.createElement('div');
+
+          headContent.contentEditable = true;
+          bodyContent.contentEditable = true;
+
+          headContent.textContent = ``;
+          bodyContent.textContent = '';
+
+          headCell.appendChild(headContent);
+          bodyCell.appendChild(bodyContent);
+
+          headRow.appendChild(headCell);
+          bodyRow.appendChild(bodyCell);
+        }
+
+        head.appendChild(headRow);
+        body.appendChild(bodyRow);
+      }
+
+      function updateTable() {
+        // Convert ghost rows to real rows if they have text and same for columns
+
+        for (let i = 0; i < body.children.length; i++) {
+          const childrenOfRow = body.children[i].children
+
+          for (let j = 0; j < childrenOfRow.length; j++) {
+            const child = childrenOfRow[j]
+
+            if (child.classList.contains('invisibleFormatCell') && !child.children[0] && i != body.children.length - 1) {
+              console.log(child)
+              const deleteButton = createDeleteButton();
+              child.appendChild(deleteButton);
+
+              continue
+            }
+
+            if (!child.children[0]) {
+              continue
+            }
+
+            if (child.children[0].textContent !== '' && child.classList.contains('nonAddedBodyCell')) {
+              // convert entire row and column to real row and column
+              for (let k = 0; k < childrenOfRow.length - 1; k++) {
+                childrenOfRow[k].classList.remove('nonAddedBodyCell')
+                childrenOfRow[k].classList.add('addedBodyCell')
+              }
+
+              for (let k = 0; k < body.children.length - 1; k++) {
+                body.children[k].children[j].classList.remove('nonAddedBodyCell')
+                body.children[k].children[j].classList.add('addedBodyCell')
+              }
+
+              const headCell = head.children[0].children[j]
+              headCell.classList.remove('nonAddedHeadCell')
+              headCell.classList.add('addedHeadCell')
+            }
+          }
+        }
+
+        for (let i = 0; i < head.children[0].children.length; i++) {
+          const child = head.children[0].children[i]
+
+          if (!child.children[0]) {
+            continue
+          }
+
+          if (child.children[0].textContent !== '' && child.classList.contains('nonAddedHeadCell')) {
+            // convert entire column to real column
+            for (let j = 0; j < body.children.length - 1; j++) {
+              body.children[j].children[i].classList.remove('nonAddedBodyCell')
+              body.children[j].children[i].classList.add('addedBodyCell')
+            }
+
+            child.classList.remove('nonAddedHeadCell')
+            child.classList.add('addedHeadCell')
+          }
+        }
+
+        // Add delete buttons to the columns
+
+        for (let i = 0; i < head.children[0].children.length; i++) {
+          const child = head.children[0].children[i]
+
+          if (!child.children[0]) {
+            continue
+          }
+
+          if (child.classList.contains('addedHeadCell') && !child.children[1]) {
+            const deleteButton = createDeleteButton(true);
+            child.appendChild(deleteButton);
+          }
+        }
+
+        // Add ghost rows if needed
+
+        let ghostRowExists = false
+
+        for (let i = 0; i < body.children.length; i++) {
+          const child = body.children[i]
+
+          if (child.children[1].classList.contains('nonAddedBodyCell')) {
+            console.log('ghost row exists')
+            ghostRowExists = true
+            break
+          }
+        }
+
+        if (!ghostRowExists) {
+          const bodyRow = document.createElement('tr');
+
+          for (let i = 0; i < head.children[0].children.length; i++) {
+            const bodyCell = document.createElement('td');
+            bodyCell.classList.add('nonAddedBodyCell');
+
+            if (i == 0) {
+              bodyCell.classList.add('invisibleFormatCell');
+              bodyCell.classList.remove('nonAddedBodyCell');
+              
+              bodyRow.appendChild(bodyCell);
+              continue;
+            }
+
+            const bodyContent = document.createElement('div');
+            bodyContent.contentEditable = true;
+            bodyContent.textContent = '';
+
+            bodyCell.appendChild(bodyContent);
+            bodyRow.appendChild(bodyCell);
+          }
+
+          body.appendChild(bodyRow);
+        }
+
+        // Add ghost columns if needed
+
+        let ghostColumnExists = false
+
+        for (let i = 0; i < head.children[0].children.length; i++) {
+          const child = head.children[0].children[i]
+
+          if (child.classList.contains('nonAddedHeadCell')) {
+            console.log('ghost column exists')
+            ghostColumnExists = true
+            break
+          }
+        }
+
+        if (!ghostColumnExists) {
+          const headCell = document.createElement('td');
+          headCell.classList.add('nonAddedHeadCell');
+
+          const headContent = document.createElement('div');
+          headContent.contentEditable = true;
+          headContent.textContent = ``;
+
+          headCell.appendChild(headContent);
+          head.children[0].appendChild(headCell);
+
+          for (let i = 0; i < body.children.length; i++) {
+            const bodyCell = document.createElement('td');
+            bodyCell.classList.add('nonAddedBodyCell');
+
+            const bodyContent = document.createElement('div');
+            bodyContent.contentEditable = true;
+            bodyContent.textContent = '';
+
+            bodyCell.appendChild(bodyContent);
+            body.children[i].appendChild(bodyCell);
+          }
+        }
+      }
+
+      function generateHTML() {
+        let html = '<table>\n';
+        html += '\t<thead>\n';
+        html += '\t\t<tr>\n';
+
+        for (let i = 0; i < head.children[0].children.length; i++) {
+          const child = head.children[0].children[i];
+
+          if (!child.children[0]) {
+            continue
+          }
+
+          if (!child.classList.contains('addedHeadCell')) {
+            continue
+          }
+
+          html += `\t\t\t<th>${child.children[0].textContent}</th>\n`;
+        }
+
+        html += '\t\t</tr>\n';
+        html += '\t</thead>\n';
+        html += '\t<tbody>\n';
+
+        for (let i = 0; i < body.children.length; i++) {
+          const child = body.children[i];
+
+          if (!child.children[0]) {
+            continue
+          }
+
+          if (child.children[1].classList.contains('nonAddedBodyCell')) {
+            continue
+          }
+
+          html += '\t\t<tr>\n';
+
+          for (let j = 0; j < child.children.length; j++) {
+            const cell = child.children[j];
+
+            if (!cell.children[0]) {
+              continue
+            }
+
+            if (!cell.classList.contains('addedBodyCell') || cell.classList.contains('invisibleFormatCell')) {
+              continue
+            }
+
+            html += `\t\t\t<td>${cell.children[0].textContent}</td>\n`;
+          }
+
+          html += '\t\t</tr>\n';
+        }
+
+        html += '\t</tbody>\n';
+        html += '</table>';
+
+        document.getElementById('htmlOutput').value = html;
+      }
+
+      setupTable();
+      
+      setInterval(() => {
+        updateTable();
+      }, 100);
+    </script>
+  </body>
+</html>
