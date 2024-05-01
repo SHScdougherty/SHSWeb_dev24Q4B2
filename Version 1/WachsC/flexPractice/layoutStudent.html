@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+            }
+
+            header {
+                display: flex;
+            }
+
+            header * {
+                flex: 1;
+                max-height: 10vh;
+            }
+
+            main {
+                display: flex;
+            }
+
+            aside {
+                display: flex;
+                flex-direction: column;
+            }
+
+            aside * {
+                flex: 1;
+            }
+
+            article {
+                display: flex;
+                flex: 1;
+                max-height: 80vh;
+            }
+
+            .flexTwo {
+                flex: 1;
+            }
+
+            footer {
+                display: flex;
+            }
+
+            .testThree {
+                flex: 1;
+                max-height: 10vh;
+            }
+    
+        </style>
+
+    </head>
+
+    <body>
+        <header>
+            <img  src="ak.png"/>
+            <img  src="al.png"/>
+            <img  src="ar.png"/>
+        </header>
+        
+
+        <main>
+            
+            <aside>
+                <img src="az.png"/>
+                <img src="ca.png"/>
+                <img src="co.png"/>
+            </aside>
+
+            <article>
+                <img class="flexTwo" src="mn.png"/>
+
+            </article>
+
+
+            <aside>
+                <img class="flexTwo" src="tx.png"/>
+                <img class="flexTwo" src="va.png">
+
+            </aside>
+
+        </main>
+
+        <footer>
+            <img class="testThree" src="md.png"/>
+        </footer>
+
+
+    </body>
+</html>
