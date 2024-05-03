@@ -4,25 +4,71 @@
 <head>
     <title>Seth's Practice Portfolio</title>
     <link rel="icon" type="image/x-icon" href="images/MLfavi.png">
+    <script src="https://kit.fontawesome.com/c7d1c54ee2.js" crossorigin="anonymous"></script>
     <style>
         nav {
             background-color: rgb(34, 51, 72);
-            min-height: 10vh;
+            min-height: 6vh;
             width: 100%;
+            box-shadow: 0px 8px 5px rgba(0, 0, 0, 0.7);
+        }
+        
+        a:link {
+            text-decoration: none;
+        }
+        
+        a:visited {
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: sienna;
+            text-decoration: underline;
+        }
+        
+        a:active {
+            text-decoration: none;
         }
         
         #navbar {
             list-style-type: none;
+            text-align: center;
+        }
+        
+        #pfp {
+            border: 1px solid sienna;
+            border-radius: 55px;
+            width: 30px;
+            height: 30px;
         }
         
         li {
             display: inline-block;
+            font-size: 40px;
+            margin-left: 50px;
+        }
+        
+        #headshot {
+            border-radius: 140px;
+            height: 350px;
+            width: 250px;
+            transition: transform .8s;
+        }
+        
+        #headshot:hover {
+            transform: scale(1.2);
+        }
+        
+        .aboutMe {
+            display: flex;
+            padding: 50px;
         }
         
         body {
             background-color: rgb(24, 37, 37);
             display: flex;
             flex-direction: column;
+            margin: 0;
         }
         
         h1 {
@@ -30,9 +76,21 @@
             text-align: center;
         }
         
-        h6 {
-            font-size: 8px;
+        h2 {
+            color: sienna;
+        }
+        
+        h3 {
+            color: lightblue;
+        }
+        
+        h4 {
             color: darkolivegreen;
+        }
+        
+        #GUI {
+            height: 460px;
+            width: 800px;
         }
         
         p {
@@ -46,41 +104,67 @@
         main {
             color: darksalmon;
             background-color: rgb(24, 37, 37);
-            min-height: 75vh;
+            display: flex;
+            padding: 25px;
         }
         
         footer {
             color: aliceblue;
             background-color: rgb(34, 51, 72);
-            min-height: 5vh;
+            min-height: 2vh;
+            text-align: center;
+        }
+        
+        #linkedin {
+            height: 50px;
+            width: 50px;
         }
     </style>
 </head>
 
 <body>
+    <!-- make any buttons highlight when they're pressed, add animations where you can-->
+
     <nav>
+        <!--Try to make this top section with a distinct shadow under it-->
         <ul id="navbar">
+            <img id="pfp" src="images/pfp.jpeg" alt="developer typing">
             <li><a href="sethFolio.html">Home</a> </li>
-            <li><a href="exampleProjects.html"> Projects</a></li>
-            <li><a href="Resume.html">Resume</a></li>
-            <li><a href="portAbout.html">About</a></li>
+            <li><a target="_blank" href="aboutMe.html">About</a></li>
+            <li><a href="#projects"> Projects</a></li>
+            <li><a target="_blank" href="images/sethResume.pdf">Resume</a></li>
         </ul>
-        <!--Make sure you make this a top section, distinct shadow under it.-->
     </nav>
+
     <h1>Welcome to Seth's Practice Portfolio</h1>
+
+    <div class="aboutMe">
+        <img id="headshot" src="images/xbgHeadshot.png" alt="seth heashot">
+        <div>
+            <h2 id="aboutMe"> About Me</h2>
+            <h3>Student Engineer</h3>
+            <p>Tech focused for as long as I can remember. After setting a basis in programming, I’m currently building small practice projects and revising the maths underlying Machine Learning in preparation for that focus in my CS degree starting fall
+                2024. Excited to continue growing in this world. Hosted portfolio site in progress. I dont have industry experience, but I think an internship role before starting my degree would be a big help in knowing what to focus on heavily in school.</p>
+        </div>
+
+    </div>
     <main>
-        Main content will go in here!! enjoy an excerpt from Asimov's Foundation.
-        <p>He had steeled himself just a little for the Jump through hyper-space, a phenomenon one did not experience in simple interplanetary trips. The Jump remained, and would probably remain forever, the only practical method of travelling between the
-            stars. Travel through ordinary space could proceed at no rate more rapid than that of ordinary light (a bit of scientific knowledge that belonged among the items known since the forgotten dawn of human history), and that would have meant years
-            of travel between even the nearest of inhabited systems. Through hyper-space, that unimaginable region that was neither space nor time, matter nor energy, something nor nothing, one could traverse the length of the Galaxy in the interval between
-            two neighboring instants of time. Gaal had waited for the first of those jumps with a little dread curled gently in his stomach, and it ended in nothing more than a trifling jar, a little internal kick which ceased an instant before he could
-            be sure he had felt it. That was all.</p>
+        <h2 class="Projects">Projects</h2>
+
+
+        <h3> Esoteric network GUI</h3>
+        <img id="GUI" src="images/netGUI.png">
+        <p> The first project I worked on in AP Computer Science after transferring to Shakopee this year, an internet diagnostic tool that has 3 functions, DNS lookuk, ping, and traceroute. It takes the input of a website, and returns the info from whatever
+            button you pressed. For example, in the image above, I did traceroute to bole.eu, it showed 5 of the ip adresses of routers that packets from my laptop went through.</p>
     </main>
 
 </body>
 <footer>
-    <h4>hosted on github I think
-        <h4>
+    <p> <a id="linkedin" target="_blank" href="https://www.linkedin.com/in/seth-nyakeri/"><i class="fa-brands fa-linkedin fa-3x"></i></a>
+        <a target="_blank" href="https://github.com/sethoteric"><i class="fa-brands fa-square-github fa-3x"></i></a>
+        <a target="_blank" href="https://www.instagram.com/sethomayo/"><i class="fa-brands fa-square-instagram fa-3x"></i></a>
+    </p>
+    <h4>©2024 Seth, all rights reserved</h6>
 </footer>
 
 </html>
