@@ -58,6 +58,7 @@
             a{
                 color:chartreuse;
                 font-family: "Comic Sans MS", "Comic Sans", cursive;
+                text-decoration: none;
             }
             a:hover{
                 color:green
@@ -68,7 +69,13 @@
                 flex-direction: column;
                 max-width: 25%;
             }
-            
+            #currentPage{
+                background-color: black;
+            }
+            h1{
+                padding-left: 50px;
+            }
+
 
         </style>
     </head>
@@ -78,7 +85,7 @@
             <nav>
                 <h1 class="text">Navigation:</h1>
                 <ul class="top">
-                    <li class="top"><a href="AboutMeHomePage.html">Home Page</a></li>
+                    <li class="top"><a id="currentPage" href="AboutMeHomePage.html">Home Page</a></li>
                     <li class="top"><a href="AboutMeWhatIPlay.html">What I play</a></li>
                     <li class="top"><a href="AboutMeWhatIWatch.html">What I watch</a></li>
                     <li class="top"><a href="AboutMeWhatIListenTo.html">What I listen to</a></li>

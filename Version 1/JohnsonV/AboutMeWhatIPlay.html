@@ -58,7 +58,7 @@
             a{
                 color:yellow;
                 font-family: "Comic Sans MS", "Comic Sans", cursive;
-                
+                text-decoration: none;
             }
             a:hover{
                 color:yellowgreen
@@ -69,7 +69,13 @@
                 flex-direction: column;
                 max-width: 25%;
             }
-            
+            #currentPage{
+                background-color: rebeccapurple;
+            }
+            h1{
+                padding-left: 50px;
+            }
+
 
 
         </style>
@@ -81,7 +87,7 @@
                 <h1 class="text">Navigation:</h1>
                 <ul class="top">
                     <span class="guh"><li class="top"><a href="AboutMeHomePage.html">Home Page</a></li></span>
-                    <span class="guh"><li class="top"><a href="AboutMeWhatIPlay.html">What I play</a></li></span>
+                    <span class="guh"><li class="top"><a id="currentPage" href="AboutMeWhatIPlay.html">What I play</a></li></span>
                     <span class="guh"><li class="top"><a href="AboutMeWhatIWatch.html">What I watch</a></li></span>
                     <span class="guh"><li class="top"><a href="AboutMeWhatIListenTo.html">What I listen to</a></li></span>
                     <span class="guh"><li class="top"><a href="AboutMeCats.html">Cats</a></li></span>

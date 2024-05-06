@@ -58,6 +58,7 @@
             a{
                 color: rgb(217, 86, 86);
                 font-family: "Comic Sans MS", "Comic Sans", cursive;
+                text-decoration: none;
             }
             a:hover{
                 color:brown
@@ -68,7 +69,13 @@
                 flex-direction: column;
                 max-width: 25%;
             }
-            
+            #currentPage{
+                background-color: yellow;
+            }
+            h1{
+                padding-left: 50px;
+            }
+
 
         </style>
     </head>
@@ -80,7 +87,7 @@
                 <ul class="top">
                     <span class="guh"><li class="top"><a href="AboutMeHomePage.html">Home Page</a></li></span>
                     <span class="guh"><li class="top"><a href="AboutMeWhatIPlay.html">What I play</a></li></span>
-                    <span class="guh"><li class="top"><a href="AboutMeWhatIWatch.html">What I watch</a></li></span>
+                    <span class="guh"><li class="top"><a id="currentPage" href="AboutMeWhatIWatch.html">What I watch</a></li></span>
                     <span class="guh"><li class="top"><a href="AboutMeWhatIListenTo.html">What I listen to</a></li></span>
                     <span class="guh"><li class="top"><a href="AboutMeCats.html">Cats</a></li></span>
                 </ul>
@@ -99,7 +106,7 @@
 
             <main>
                 <p class="text">I watched a lot mainly anime and youtube, so here are the ones I watch</p>
-                <h1 class="text">Anime I have watched or am watching:</h1>
+                <h2 class="text">Anime I have watched or am watching:</h1>
                 <ul class="text">
                     <li>Bleach</li>
                     <li><img src="Images/blech.jpeg"></li>
