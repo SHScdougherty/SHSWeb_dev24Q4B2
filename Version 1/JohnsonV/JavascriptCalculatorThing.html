@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script>
+            function addNums(){
+                let a = document.getElementById("addNum1").value;
+                let b = document.getElementById("addNum2").value;
+                a = Number(a);
+                b = Number(b);
+                document.write(a+b);
+            }
+            function multNums(){
+                let c = document.getElementById("multNum1").value;
+                let d = document.getElementById("multNum2").value;
+                c = Number(c);
+                d = Number(d);
+                document.write(c*d);
+            }
+            function pyNums(){
+                let e = document.getElementById("pyNum1").value;
+                let f = document.getElementById("pyNum2").value;
+                e = Number(e);
+                f = Number(f);
+                g = (e*e)+(f*f)
+                h = Math.sqrt(g)
+                document.write(h);
+            }
+        </script>
+    </head>
+
+    <body>
+        <main>
+            <input id="addNum1" type="text" />
+            <input id="addNum2" type="text" />
+            <input id="sumButton" onclick="addNums()" type="button" value="Add"/>
+            <br>
+            <input id="multNum1" type="text" />
+            <input id="multNum2" type="text" />
+            <input id="multButton" onclick="multNums()" type="button" value="Multiply"/>
+            <br>
+            <input id="pyNum1" type="text" />
+            <input id="pyNum2" type="text" />
+            <input id="pyButton" onclick="pyNums()" type="button" value="Find C"/>
+        </main>
+    </body>
+    
+</html>
