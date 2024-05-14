@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script>
+            function addthings(){
+                let custom1 = document.getElementById("adjective1").value;
+                document.getElementById("thing1").innerHTML = custom1;
+                let custom2 = document.getElementById("verb1").value;
+                document.getElementById("thing2").innerHTML = custom2;
+                let custom3 = document.getElementById("food1").value;
+                document.getElementById("thing3").innerHTML = custom3;
+                let custom4 = document.getElementById("food2").value;
+                document.getElementById("thing4").innerHTML = custom4;
+                let custom5 = document.getElementById("place1").value;
+                document.getElementById("thing5").innerHTML = custom5;
+                let custom6 = document.getElementById("noun1").value;
+                document.getElementById("thing6").innerHTML = custom6;
+                let custom7 = document.getElementById("name1").value;
+                document.getElementById("thing7").innerHTML = custom7;
+                let custom8 = document.getElementById("place2").value;
+                document.getElementById("thing8").innerHTML = custom8;
+                let custom9 = document.getElementById("verb2").value;
+                document.getElementById("thing9").innerHTML = custom9;
+                let custom10 = document.getElementById("verb3").value;
+                document.getElementById("thing10").innerHTML = custom10;
+                let custom11 = document.getElementById("animal1").value;
+                document.getElementById("thing11").innerHTML = custom11;
+                let custom12 = document.getElementById("exclamation1").value;
+                document.getElementById("thing12").innerHTML = custom12;
+                let custom13 = document.getElementById("adjective2").value;
+                document.getElementById("thing13").innerHTML = custom13;
+                let custom14 = document.getElementById("place3").value;
+                document.getElementById("thing14").innerHTML = custom14;
+                let custom15 = document.getElementById("noun2").value;
+                document.getElementById("thing15").innerHTML = custom15;
+                let custom16 = document.getElementById("noun3").value;
+                document.getElementById("thing16").innerHTML = custom16;
+                let custom17 = document.getElementById("verb4").value;
+                document.getElementById("thing17").innerHTML = custom17;
+                let custom18 = document.getElementById("game1").value;
+                document.getElementById("thing18").innerHTML = custom18;
+                let custom19 = document.getElementById("movie1").value;
+                document.getElementById("thing19").innerHTML = custom19;
+                let custom20 = document.getElementById("verb5").value;
+                document.getElementById("thing20").innerHTML = custom20;
+            }
+        </script>
+    </head>
+
+    <body>
+        <main>
+            <p>Adjective:<input id="adjective1" type="text" /></p>
+            <p>Verb ending in ed:<input id="verb1" type="text" /></p>
+            <p>Food:<input id="food1" type="text" /></p>
+            <p>Food:<input id="food2" type="text" /></p>
+            <p>Place:<input id="place1" type="text" /></p>
+            <p>Noun:<input id="noun1" type="text" /></p>
+            <p>Name:<input id="name1" type="text" /></p>
+            <p>Place:<input id="place2" type="text" /></p>
+            <p>Verb ending in ed:<input id="verb2" type="text" /></p>
+            <p>Same verb ending in ing:<input id="verb3" type="text" /></p>
+            <p>Animal:<input id="animal1" type="text" /></p>
+            <p>Exclamation:<input id="exclamation1" type="text" /></p>
+            <p>Adjective:<input id="adjective2" type="text" /></p>
+            <p>Place:<input id="place3" type="text" /></p>
+            <p>Noun:<input id="noun2" type="text" /></p>
+            <p>Noun:<input id="noun3" type="text" /></p>
+            <p>Verb:<input id="verb4" type="text" /></p>
+            <p>Game:<input id="game1" type="text" /></p>
+            <p>Movie:<input id="movie1" type="text" /></p>
+            <p>Verb:<input id="verb5" type="text" /></p>
+            <input id="addButton" onclick="addthings()" type="button" value="Add"/>
+            
+            <p>Today, I woke up feeling <span id="thing1"></span>. 
+                After I woke up, I <span id="thing2"></span>. 
+                After that I had breakfast, and for breakfast I had <span id="thing3"></span> and <span id="thing4"></span>.
+            </p>
+            <p>
+                Next, I went to <span id="thing5"></span> and bought a <span id="thing6"></span>. 
+                Then I met my friend <span id="thing7"></span> at <span id="thing8"></span>. 
+                While we were there, we <span id="thing9"></span>. 
+                While we were <span id="thing10"></span>, we saw a <span id="thing11"></span>. 
+            </p>
+            <p>
+                When I saw it I said, "<span id="thing12"></span>! It's so <span id="thing13"></span>!". 
+                After we saw that, we decided to go to <span id="thing14"></span>. 
+                There I bought a <span id="thing15"></span> and my friend bought a <span id="thing16"></span>. 
+            </p>
+            <p>
+                Then we said bye to eachother and I <span id="thing17"></span> home. 
+                When I got back home, I played <span id="thing18"></span> then watched <span id="thing19"></span>. 
+                Finally, I <span id="thing20"></span> then went to sleep.
+            </p>
+        </main>
+    </body>
+    
+</html>

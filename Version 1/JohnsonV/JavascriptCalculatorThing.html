@@ -8,23 +8,24 @@
                 let b = document.getElementById("addNum2").value;
                 a = Number(a);
                 b = Number(b);
-                document.write(a+b);
+                document.getElementById("sumOutput").innerHTML += a+b;
             }
             function multNums(){
                 let c = document.getElementById("multNum1").value;
                 let d = document.getElementById("multNum2").value;
                 c = Number(c);
                 d = Number(d);
-                document.write(c*d);
+                document.getElementById("multOutput").innerHTML += c*d;
             }
             function pyNums(){
                 let e = document.getElementById("pyNum1").value;
                 let f = document.getElementById("pyNum2").value;
                 e = Number(e);
                 f = Number(f);
-                g = (e*e)+(f*f)
-                h = Math.sqrt(g)
-                document.write(h);
+                g = Math.sqrt((e*e)+(f*f))
+                document.getElementById("aText").innerHTML = e;
+                document.getElementById("bText").innerHTML = f;
+                document.getElementById("cText").innerHTML = g;
             }
         </script>
     </head>
@@ -34,14 +35,23 @@
             <input id="addNum1" type="text" />
             <input id="addNum2" type="text" />
             <input id="sumButton" onclick="addNums()" type="button" value="Add"/>
-            <br>
+            <div id="sumOutput">
+                The sum is:
+            </div>
             <input id="multNum1" type="text" />
             <input id="multNum2" type="text" />
             <input id="multButton" onclick="multNums()" type="button" value="Multiply"/>
-            <br>
+            <div id="multOutput">
+                The product is:
+            </div>
             <input id="pyNum1" type="text" />
             <input id="pyNum2" type="text" />
             <input id="pyButton" onclick="pyNums()" type="button" value="Find C"/>
+            <div id="pyOutput">
+            </div>
+
+            <p> If the legs of a right triangle measure <span id="aText"></span>
+            and <span id=bText></span>, then the hypoteunuse measures <span id="cText"></span>.</p>
         </main>
     </body>
     
