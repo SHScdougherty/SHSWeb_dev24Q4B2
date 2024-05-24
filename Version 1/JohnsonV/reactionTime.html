@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        let rand = Math.floor(Math.random()*10000)+1000;
+        let clicks = 0;
+        let current, now;
+
+        function reactionTest(){
+                document.getElementById("myButton").className="green";
+                current = new Date();
+        }
+        function getTime(){
+            now = new Date();
+
+            const timeDiff = now - current;
+
+            document.getElementById("result").innerHTML = "Your reaction time was " + timeDiff + "ms."
+        }
+    </script>
+    <style>
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Test your reaction time</h1>
+        <input onclick="setTimeout(reactionTest, rand)" id="myButton" class="red" type="button" value="Go!">
+        <input onclick="getTime()" type="button" value="Stop">
+        <br>Press the button when it turns green.
+        <div id="result"></div>
+    </main>
+</body>
+</html>

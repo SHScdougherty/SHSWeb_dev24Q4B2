@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <style>
+            body{
+                background-color: black;
+                color: white;
+                text-align: center;
+                font-family: "Comic Sans MS", "Comic Sans", cursive;
+            }
+            .higher{
+                color: tomato
+            }
+            .lower{
+                color: teal
+            }
+            .correct{
+                color: olivedrab
+            }
+        </style>
+        <script>
+            let answer = Math.floor(Math.random()*100)+1
+            let firstGuess = true;
+
+            function higherLower(){
+                const guess = Number(document.getElementById("guess").value);
+                const result = document.getElementById("result");
+                const prevGuesses = document.getElementById("prevGuesses");
+                let state;
+ 
+                if (firstGuess){
+                    prevGuesses.innerHTML = "Previous Guesses: "
+                    firstGuess = false;
+                } else{
+                    prevGuesses.innerHTML += ", "
+                }
+
+                if (guess > answer){
+                    state = "higher";
+                    result.innerHTML = "<h1>Your guess of " + "<span class='" + state + "'>" + guess + "</span>" + " is higher than the actual number.</h1>";
+                    
+                } else if (guess < answer){
+                    state = "lower";
+                    result.innerHTML = "<h1>Your guess of " + "<span class='" + state + "'>" + guess + "</span>" + " is lower than the actual number.</h1>";
+                   
+                } else{
+                    state = "correct";
+                    result.innerHTML = "<h1>" + "<span class='" + state + "'>" + guess + "</span>" +  " is correct!</h1>";
+                    
+                }
+                prevGuesses.innerHTML += "<span class='" + state + "'>" + guess + "</span>";
+                
+                
+
+
+                document.getElementById("guess").value = "";
+            }
+            function Reset(){
+                firstGuess = true;
+                answer = Math.floor(Math.random()*100)+1;
+                prevGuesses.innerHTML = "";
+                result.innerHTML = "";
+            }
+        </script>
+    </head>
+
+    <body>
+        <main>
+            <h1>Higher or Lower</h1>
+            Guess a number from 1 to 100 <br>
+            <input id="guess" type="text"></input>
+            <input onclick="higherLower()" type="button" value="submit">
+            <input onclick="Reset()" type="button" value="reset">
+            <br>
+            <br>
+            <br>
+            <div id="result"></div>
+            <br>
+            <br>
+            <div id="prevGuesses"></div>
+        </main>
+    </body>
+    
+</html>
