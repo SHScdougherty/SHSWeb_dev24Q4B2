@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		main {
+			text-align: center;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			margin: 20px;
+		}
+
+		main h1 {
+			line-height: 2.5;
+		}
+
+		main p {
+			line-height: 0px;
+		}
+	</style>
+	<script src="prices.js"></script>
+</head>
+<body>
+	<main>
+		<h1>Higher or Lower</h1>
+		<p>Is the item's actual price higher or lower</p>
+		<input onclick="higher()" type="button" value="Higher">
+		<input onclick="lower()" type="button" value="Lower">
+
+		<h2>Current Item</h2>
+		<p id="currentItem">item name here</p>
+		<p id="price">price here</p>
+		<p id="timer">0 seconds left</p>
+	</main>
+
+	<script>
+		const prices = getPrices(); // Object from prices.js
+		let currentItem = {};
+		let randomPrice = 0;
+		let roundId = 0;
+
+		function comma(number) {
+			return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
+
+		function randomBetween(min, max) {
+			return Math.random() * (max - min + 1) + min;
+		}
+
+		function nextRound() {
+			++roundId;
+			const thisRoundId = roundId
+			const keys = Object.keys(prices);
+			const randomIndex = Math.floor(Math.random() * keys.length);
+			const randomKey = keys[randomIndex];
+			currentItem = prices[randomKey];
+
+			const multiplier = randomBetween(.7, 1.3);
+			randomPrice = Math.floor(currentItem.Price * multiplier);
+
+			document.getElementById("currentItem").innerText = currentItem.Name;
+			document.getElementById("price").innerText = `${comma(randomPrice)} Robux`;
+			document.getElementById("timer").innerText = "10 seconds left";
+
+			// setTimeout(() => {
+			// 	alert(`Time's up! The actual price is ${comma(currentItem.Price)} Robux`);
+			// 	nextRound();
+			// }, 10000);
+
+			for (let i = 9; i >= 0; i--) {
+				setTimeout(() => {
+					if (roundId != thisRoundId) return;
+					document.getElementById("timer").innerText = `${i} seconds left`;
+
+					if (i == 0) {
+						alert(`Times up! The actual price is ${comma(currentItem.Price)} Robux`)
+					}
+				}, (10 - i) * 1000);
+			}
+		}
+
+		function wrong() {
+			alert(`Wrong! The actual price is ${comma(currentItem.Price)} Robux`);
+			nextRound();
+		}
+
+		function correct() {
+			alert(`Correct! The actual price is ${comma(currentItem.Price)} Robux`);
+			nextRound();
+		}
+
+		function higher() {
+			if (randomPrice < currentItem.Price) {
+				correct();
+			} else {
+				wrong();
+			}
+		}
+
+		function lower() {
+			if (randomPrice > currentItem.Price) {
+				correct();
+			} else {
+				wrong();
+			}
+		}
+
+		nextRound();
+	</script>
+</body>
+</html>

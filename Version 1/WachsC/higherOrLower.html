@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		main {
+			text-align: center;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			margin: 20px;
+		}
+
+		main h1 {
+			line-height: 2.5;
+		}
+
+		main p {
+			line-height: 0px;
+		}
+	</style>
+	<script src="prices.js"></script>
+</head>
+<body>
+	<main>
+		<h1>Higher or Lower</h1>
+		<p>Guess a number between 1 and 100</p>
+		<input type="text" id="guess" placeholder="Enter a number">
+		<input onclick="checkGuess()" type="button" value="Submit">
+	</main>
+
+	<script>
+		const answer = Math.floor(Math.random() * 100) + 1
+
+		function checkGuess() {
+			const guess = parseInt(document.getElementById("guess").value)
+
+			if (!guess) {
+				alert("Please enter a number")
+				return
+			}
+
+			if (guess > answer) {
+				alert("Lower")
+			} else if (guess < answer) {
+				alert("Higher")
+			} else {
+				alert("Success!")
+			}
+
+			document.getElementById("guess").value = ""
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MadLib</title>
+    <style>
+      input {
+        display: block;
+        margin: 2px;
+      }
+
+      p {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 20px;
+      }
+
+      .inputHolder p {
+        display: inline-block;
+        min-width: 145px;
+        margin: 0;
+      }
+
+      .inputHolder input {
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="Name" placeholder="Name" />
+    <input type="text" id="emotion" placeholder="Emotion" />
+    <input type="text" id="emotion2" placeholder="Emotion" />
+    <input type="text" id="speed" placeholder="Speed" />
+    <input type="text" id="breakfastFood" placeholder="Breakfast Food" />
+    <input type="text" id="adverb" placeholder="Adverb" />
+    <input type="text" id="adjective" placeholder="Adjective" />
+    <input type="text" id="adjective3" placeholder="Adjective" />
+    <input type="text" id="transportationVerb" placeholder="Transportation Verb" />
+    <input type="text" id="streetName" placeholder="Street Name" />
+    <input type="text" id="color" placeholder="Color" />
+    <input type="text" id="object" placeholder="Object" />
+    <input type="text" id="activity" placeholder="Activity" />
+    <input type="text" id="location" placeholder="Location" />
+    <input type="text" id="workplace" placeholder="Workplace" />
+    <input type="text" id="verb" placeholder="Verb" />
+    <input type="text" id="facialExpression" placeholder="Facial Expression" />
+    <input type="text" id="task" placeholder="Task" />
+    <input type="text" id="task2" placeholder="Task" />
+    <input type="text" id="adjective2" placeholder="Adjective" />
+    <input type="text" id="feeling" placeholder="Feeling" />
+    <!-- <div class="inputHolder">
+      <p>Name:</p>
+      <input type="text" id="Name" placeholder="Name" />
+    </div> -->
+    <br />
+    <button onclick="generate()">Generate!!!</button>
+    <p id="output"></p>
+    <script>
+      // im too lazy to change the html to wrap all the inputs in a div
+      function wrapInputs() {
+        const inputs = document.querySelectorAll('input');
+
+        inputs.forEach((input) => {
+          const div = document.createElement('div');
+          const p = document.createElement('p');
+          p.innerText = `${input.placeholder}:`;
+          div.classList.add('inputHolder');
+          div.appendChild(p);
+          div.appendChild(input);
+
+          document.body.insertBefore(div, document.querySelector('button'));
+        });
+      }
+
+      wrapInputs();
+
+      function generate() {
+        const Name = document.getElementById('Name').value;
+        const emotion = document.getElementById('emotion').value;
+        const emotion2 = document.getElementById('emotion2').value;
+        const speed = document.getElementById('speed').value;
+        const breakfastFood = document.getElementById('breakfastFood').value;
+        const adverb = document.getElementById('adverb').value;
+        const adjective = document.getElementById('adjective').value;
+        const adjective3 = document.getElementById('adjective3').value;
+        const transportationVerb = document.getElementById('transportationVerb').value;
+        const streetName = document.getElementById('streetName').value;
+        const color = document.getElementById('color').value;
+        const object = document.getElementById('object').value;
+        const activity = document.getElementById('activity').value;
+        const location = document.getElementById('location').value;
+        const workplace = document.getElementById('workplace').value;
+        const verb = document.getElementById('verb').value;
+        const facialExpression = document.getElementById('facialExpression').value;
+        const task = document.getElementById('task').value;
+        const task2 = document.getElementById('task2').value;
+        const adjective2 = document.getElementById('adjective2').value;
+        const feeling = document.getElementById('feeling').value;
+
+        const check = [
+          Name,
+          emotion,
+          emotion2,
+          speed,
+          breakfastFood,
+          adverb,
+          adjective,
+          adjective3,
+          transportationVerb,
+          streetName,
+          color,
+          object,
+          activity,
+          location,
+          workplace,
+          verb,
+          facialExpression,
+          task,
+          task2,
+          adjective2,
+          feeling,
+        ];
+
+        for (let i = 0; i < check.length; i++) {
+          if (check[i] === '') {
+            alert('Please fill out all fields.');
+            return;
+          }
+        }
+
+        const paragraph1 = `${Name} woke up feeling ${emotion} and ${emotion2}, ready to tackle the day ahead. After a ${speed} breakfast of ${breakfastFood}, they headed out the door, excited for what the day had in store. The sun was shining ${adverb}, and a ${adjective3} breeze made the morning air ${adjective}.`;
+
+        const paragraph2 = `As they ${transportationVerb} down the ${streetName}, ${Name} noticed a ${color} ${object} in the sky. It reminded them of the time they went ${activity} with their friends at the ${location}.`;
+
+        const paragraph3 = `Arriving at ${workplace}, ${Name} ${verb} their coworker with a ${facialExpression}. They spent the morning ${task} and ${task2}, feeling productive and accomplished. Despite the usual ${adjective2} office hustle and bustle, the day felt ${feeling}`;
+
+        document.getElementById("output").innerHTML = `${paragraph1} <br> <br> ${paragraph2} <br> <br> ${paragraph3}`;
+      }
+    </script>
+  </body>
+</html>

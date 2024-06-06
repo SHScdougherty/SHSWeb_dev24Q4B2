@@ -1,0 +1,6 @@
+myUserId: 100
+joinUserId: 750
+
+a: (startTime - updateTime)
+b: joinUserId - (placeId - (myUserId - startTime))
+c: (myUserId - updateTime) / updateTime
