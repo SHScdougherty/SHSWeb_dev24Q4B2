@@ -9,7 +9,7 @@
                 display:flex;
                 flex-direction: column;
                 margin:0px;
-                background-color: black;
+                background-color: white;
             }
             .text{
                 color:white;
@@ -17,7 +17,7 @@
             }
             header{
                 min-height: 5vh;
-                background-color: darkgray;
+                background-color: rgb(255, 255, 165);
             }
             main{
                 min-height: 85vh;
@@ -26,7 +26,7 @@
             }
             footer{
                 min-height: 10vh;
-                background-color: darkgray;
+                background-color: rgb(55, 0, 0);
             }
             ul{
                 list-style-type: none;
@@ -36,7 +36,7 @@
                 padding-bottom:5px;
             }
             li:hover{
-                background-color:lightgray
+                background-color:rgb(127, 255, 223)
             }
             .top{
                 margin:5px;
@@ -47,7 +47,7 @@
                 display:flex
             }
             aside{
-                background-color: gray;
+                background-color: rgb(59, 0, 50);
                 flex:1;
                 padding-left: 5px;
             }
@@ -56,12 +56,12 @@
                 padding-left:0px;
             }
             a{
-                color:chartreuse;
+                color:rgb(255, 103, 103);
                 font-family: "Comic Sans MS", "Comic Sans", cursive;
                 text-decoration: none;
             }
             a:hover{
-                color:green
+                color:rgb(2, 0, 46)
             }
             #me{
                 display: flex;
@@ -70,14 +70,37 @@
                 max-width: 25%;
             }
             #currentPage{
-                background-color: black;
+                background-color: rgb(208, 255, 126);
             }
             h1{
                 padding-left: 50px;
             }
+            .red{
+            background-color: red;
+            }
+            .green{
+            background-color: green;
+            }
 
 
         </style>
+        <script>
+            let rand = Math.floor(Math.random()*10000)+1000;
+            let clicks = 0;
+            let current, now;
+    
+            function reactionTest(){
+                    document.getElementById("myButton").className="green";
+                    current = new Date();
+            }
+            function getTime(){
+                now = new Date();
+    
+                const timeDiff = now - current;
+    
+                document.getElementById("result").innerHTML = "Your reaction time was " + timeDiff + "ms."
+            }
+        </script>
     </head>
 
     <body>
@@ -85,7 +108,7 @@
             <nav>
                 <h1 class="text">Navigation:</h1>
                 <ul class="top">
-                    <li class="top"><a id="currentPage" href="AboutMeHomePage.html">Home Page</a></li>
+                    <li class="top"><a href="AboutMeHomePage.html">Home Page</a></li>
                     <li class="top"><a href="AboutMeWhatIPlay.html">What I play</a></li>
                     <li class="top"><a href="AboutMeWhatIWatch.html">What I watch</a></li>
                     <li class="top"><a href="AboutMeWhatIListenTo.html">What I listen to</a></li>
@@ -94,7 +117,7 @@
                     <li class="top"><a href="AboutMeJava2.html">Mad Lib</a></li>
                     <li class="top"><a href="AboutMeJava3.html">Dice</a></li>
                     <li class="top"><a href="AboutMeJava4.html">Calculator</a></li>
-                    <li class="top"><a href="AboutMeJava5.html">Reaction</a></li>
+                    <li class="top"><a id="currentPage" href="AboutMeJava5.html">Reaction</a></li>
                 </ul>
             </nav>
         </header>
@@ -110,13 +133,13 @@
             </aside>
 
             <main>
-                <p class="text">This is my about me page because it's the easiest "purpose" for this assignment, also I chose Comic Sans because it's the font everyone hates.</p>
-                <p class="text">In my free time I usually play games with friends, watch things, and listen to music. What I play and watch and listen to will be on other pages.</p>
-                <p class="text">Aside from playing games and watching stuff I don't do much, I like drawing and most forms of art.</p>
-                <p class="text">I'm going into the Arts and Communications academy because I like art.</p>
-                <p class="text">I have 6 cats, their names are Jenny, Tank, Chester, Daphne, Luna, and Shadow. Pictures can be found at the top.</p>
-                <p class="text">That's pretty much all the basic information I have, all other info can be found at the top, the side, and the bottom.</p>
-                <img id="me" src="Images/Me.jpeg">
+                <main>
+                    <h1>Test your reaction time</h1>
+                    <input onclick="setTimeout(reactionTest, rand)" id="myButton" class="red" type="button" value="Go!">
+                    <input onclick="getTime()" type="button" value="Stop">
+                    <br>Press the stop button when Go! turns green. Click Go! to start.
+                    <div id="result"></div>
+                </main>
             </main>
         
         </div>

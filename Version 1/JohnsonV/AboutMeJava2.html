@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Vinny's Website: Mad Lib</title>
+        <link rel="icon" type="image/x-icon" href="Images/favicon.ico">
+        <style>
+            body{
+                display:flex;
+                flex-direction: column;
+                margin:0px;
+                background-color: white;
+            }
+            .text{
+                color:black;
+                font-family: "Comic Sans MS", "Comic Sans", cursive;
+            }
+            header{
+                min-height: 5vh;
+                background-color: darkseagreen;
+            }
+            main{
+                min-height: 85vh;
+                flex:4;
+                margin:5px;
+            }
+            footer{
+                min-height: 10vh;
+                background-color: rgb(93, 182, 26);
+            }
+            ul{
+                list-style-type: none;
+            }
+            li{
+                padding-top:5px;
+                padding-bottom:5px;
+            }
+            .guh:hover{
+                background-color: hotpink
+            }
+            .top{
+                margin:5px;
+                display:inline-block;
+                font-size:medium;
+            }
+            #contentArea{
+                display:flex
+            }
+            aside{
+                background-color: rgb(127, 55, 221);
+                flex:1;
+                padding-left: 5px;
+            }
+            #side{
+                font-size:15px;
+                padding-left:0px;
+            }
+            a{
+                color:rgb(234, 84, 109);
+                font-family: "Comic Sans MS", "Comic Sans", cursive;
+                text-decoration: none;
+                
+            }
+            a:hover{
+                color:rgb(155, 78, 155)
+            }
+            #me{
+                display: flex;
+                float: left;
+                flex-direction: column;
+                max-width: 25%;
+            }
+            .car{
+                max-width: 25%;
+            }
+            #currentPage{
+                background-color: rgb(38, 43, 31);
+            }
+            h1{
+                padding-left: 50px;
+            }
+
+        </style>
+        <script>
+            function addthings(){
+                let custom1 = document.getElementById("adjective1").value;
+                document.getElementById("thing1").innerHTML = custom1;
+                let custom2 = document.getElementById("verb1").value;
+                document.getElementById("thing2").innerHTML = custom2;
+                let custom3 = document.getElementById("food1").value;
+                document.getElementById("thing3").innerHTML = custom3;
+                let custom4 = document.getElementById("food2").value;
+                document.getElementById("thing4").innerHTML = custom4;
+                let custom5 = document.getElementById("place1").value;
+                document.getElementById("thing5").innerHTML = custom5;
+                let custom6 = document.getElementById("noun1").value;
+                document.getElementById("thing6").innerHTML = custom6;
+                let custom7 = document.getElementById("name1").value;
+                document.getElementById("thing7").innerHTML = custom7;
+                let custom8 = document.getElementById("place2").value;
+                document.getElementById("thing8").innerHTML = custom8;
+                let custom9 = document.getElementById("verb2").value;
+                document.getElementById("thing9").innerHTML = custom9;
+                let custom10 = document.getElementById("verb3").value;
+                document.getElementById("thing10").innerHTML = custom10;
+                let custom11 = document.getElementById("animal1").value;
+                document.getElementById("thing11").innerHTML = custom11;
+                let custom12 = document.getElementById("exclamation1").value;
+                document.getElementById("thing12").innerHTML = custom12;
+                let custom13 = document.getElementById("adjective2").value;
+                document.getElementById("thing13").innerHTML = custom13;
+                let custom14 = document.getElementById("place3").value;
+                document.getElementById("thing14").innerHTML = custom14;
+                let custom15 = document.getElementById("noun2").value;
+                document.getElementById("thing15").innerHTML = custom15;
+                let custom16 = document.getElementById("noun3").value;
+                document.getElementById("thing16").innerHTML = custom16;
+                let custom17 = document.getElementById("verb4").value;
+                document.getElementById("thing17").innerHTML = custom17;
+                let custom18 = document.getElementById("game1").value;
+                document.getElementById("thing18").innerHTML = custom18;
+                let custom19 = document.getElementById("movie1").value;
+                document.getElementById("thing19").innerHTML = custom19;
+                let custom20 = document.getElementById("verb5").value;
+                document.getElementById("thing20").innerHTML = custom20;
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <h1 class="text">Navigation:</h1>
+                <ul class="top">
+                    <span class="guh"><li class="top"><a href="AboutMeHomePage.html">Home Page</a></li></span>
+                    <span class="guh"><li class="top"><a href="AboutMeWhatIPlay.html">What I play</a></li></span>
+                    <span class="guh"><li class="top"><a href="AboutMeWhatIWatch.html">What I watch</a></li></span>
+                    <span class="guh"><li class="top"><a href="AboutMeWhatIListenTo.html">What I listen to</a></li></span>
+                    <span class="guh"><li class="top"><a href="AboutMeCats.html">Cats</a></li></span>
+                    <span class="guh"><li class="top"><a href="AboutMeJava1.html">Higher or Lower</a></li></span>
+                    <span class="guh"><li class="top"><a id="currentPage" href="AboutMeJava2.html">Mad Lib</a></li></span>
+                    <span class="guh"><li class="top"><a href="AboutMeJava3.html">Dice</a></li></span>
+                    <span class="guh"><li class="top"><a href="AboutMeJava4.html">Calculator</a></li></span>
+                    <span class="guh"><li class="top"><a href="AboutMeJava5.html">Reaction</a></li></span>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="contentArea">
+            <aside>
+                <h2 class="text">Social Media Links</h2>
+                <ul id="side">
+                    <li class="guh"><a href="https://medal.tv/u/Ratson">Medal</a></li>
+                    <li class="guh"><a href="https://www.tiktok.com/@ratson52?_r=1&_d=e612jd3l5ae8g6&sec_uid=MS4wLjABAAAALE0VrZQfxl4v7kF_C9e7JLDGJ7YaaT9dKqFEPEeZd8Q0FPTz3TyV67-7DOEBqd2G&share_author_id=7068060480616268846&sharer_language=en&source=h5_m&u_code=e0c2j7lc536d5b&ug_btm=b8727,b0&social_share_type=4&utm_source=copy&sec_user_id=MS4wLjABAAAALE0VrZQfxl4v7kF_C9e7JLDGJ7YaaT9dKqFEPEeZd8Q0FPTz3TyV67-7DOEBqd2G&tt_from=copy&utm_medium=ios&utm_campaign=client_share&enable_checksum=1&user_id=7068060480616268846&share_link_id=DF162F51-CE5A-4F92-A15A-AD3B3D5FCC20&share_app_id=1233">Tik Tok</a></li>
+                    <li class="guh"><a href="https://youtube.com/@b-manister-th8yr?si=NKBHrIbtvKk95_Tn">My friend's yt</a></li>
+                </ul>
+            </aside>
+
+            <main>
+                <p>Adjective:<input id="adjective1" type="text" /></p>
+            <p>Verb ending in ed:<input id="verb1" type="text" /></p>
+            <p>Food:<input id="food1" type="text" /></p>
+            <p>Food:<input id="food2" type="text" /></p>
+            <p>Place:<input id="place1" type="text" /></p>
+            <p>Noun:<input id="noun1" type="text" /></p>
+            <p>Name:<input id="name1" type="text" /></p>
+            <p>Place:<input id="place2" type="text" /></p>
+            <p>Verb ending in ed:<input id="verb2" type="text" /></p>
+            <p>Same verb ending in ing:<input id="verb3" type="text" /></p>
+            <p>Animal:<input id="animal1" type="text" /></p>
+            <p>Exclamation:<input id="exclamation1" type="text" /></p>
+            <p>Adjective:<input id="adjective2" type="text" /></p>
+            <p>Place:<input id="place3" type="text" /></p>
+            <p>Noun:<input id="noun2" type="text" /></p>
+            <p>Noun:<input id="noun3" type="text" /></p>
+            <p>Verb:<input id="verb4" type="text" /></p>
+            <p>Game:<input id="game1" type="text" /></p>
+            <p>Movie:<input id="movie1" type="text" /></p>
+            <p>Verb:<input id="verb5" type="text" /></p>
+            <input id="addButton" onclick="addthings()" type="button" value="Add"/>
+            
+            <p>Today, I woke up feeling <span id="thing1"></span>. 
+                After I woke up, I <span id="thing2"></span>. 
+                After that I had breakfast, and for breakfast I had <span id="thing3"></span> and <span id="thing4"></span>.
+            </p>
+            <p>
+                Next, I went to <span id="thing5"></span> and bought a <span id="thing6"></span>. 
+                Then I met my friend <span id="thing7"></span> at <span id="thing8"></span>. 
+                While we were there, we <span id="thing9"></span>. 
+                While we were <span id="thing10"></span>, we saw a <span id="thing11"></span>. 
+            </p>
+            <p>
+                When I saw it I said, "<span id="thing12"></span>! It's so <span id="thing13"></span>!". 
+                After we saw that, we decided to go to <span id="thing14"></span>. 
+                There I bought a <span id="thing15"></span> and my friend bought a <span id="thing16"></span>. 
+            </p>
+            <p>
+                Then we said bye to eachother and I <span id="thing17"></span> home. 
+                When I got back home, I played <span id="thing18"></span> then watched <span id="thing19"></span>. 
+                Finally, I <span id="thing20"></span> then went to sleep.
+            </p>
+            </main>
+        
+        </div>
+
+        <footer>
+        <p class="text">This page was made by Vinny Johnson at Shakopee Highschool. This image leads to their website:</p>
+        <a href="https://www.shakopee.k12.mn.us/shs"><img src="Images/SPS.png"></a>
+        </footer>
+    </body>
+    
+</html>

@@ -9,7 +9,7 @@
                 display:flex;
                 flex-direction: column;
                 margin:0px;
-                background-color: black;
+                background-color: white;
             }
             .text{
                 color:white;
@@ -17,7 +17,7 @@
             }
             header{
                 min-height: 5vh;
-                background-color: darkgray;
+                background-color: rgb(91, 87, 36);
             }
             main{
                 min-height: 85vh;
@@ -26,7 +26,7 @@
             }
             footer{
                 min-height: 10vh;
-                background-color: darkgray;
+                background-color: rgb(47, 175, 109);
             }
             ul{
                 list-style-type: none;
@@ -36,7 +36,7 @@
                 padding-bottom:5px;
             }
             li:hover{
-                background-color:lightgray
+                background-color:rgb(126, 88, 88)
             }
             .top{
                 margin:5px;
@@ -47,7 +47,7 @@
                 display:flex
             }
             aside{
-                background-color: gray;
+                background-color: rgba(137, 229, 191, 0.428);
                 flex:1;
                 padding-left: 5px;
             }
@@ -56,12 +56,12 @@
                 padding-left:0px;
             }
             a{
-                color:chartreuse;
+                color:rgb(58, 53, 57);
                 font-family: "Comic Sans MS", "Comic Sans", cursive;
                 text-decoration: none;
             }
             a:hover{
-                color:green
+                color:rgb(91, 82, 150)
             }
             #me{
                 display: flex;
@@ -70,7 +70,7 @@
                 max-width: 25%;
             }
             #currentPage{
-                background-color: black;
+                background-color: rgb(217, 29, 29);
             }
             h1{
                 padding-left: 50px;
@@ -78,6 +78,48 @@
 
 
         </style>
+        <script>
+            function D100(){
+                let D100 = Math.floor(Math.random()*100)+1
+                alert(D100);
+            }
+            function D6(){
+                let D6 = Math.floor(Math.random()*6)+1
+                alert(D6);
+            }
+            function D20(){
+                let D20 = Math.floor(Math.random()*20)+1
+                alert(D20);
+            }
+            function Coin(){
+                let Coin = Math.floor(Math.random()*50)+1
+                if (Coin < 26){
+                    alert("heads");
+                }
+                else if (Coin > 25){
+                    alert("tails");
+                }
+                else{
+                    alert("something went wrong");
+                }
+            }
+            function D962(){
+                let D962 = Math.floor(Math.random()*962)+1
+                alert(D962);
+            }
+            function D4(){
+                let D4 = Math.floor(Math.random()*4)+1
+                alert(D4);
+            }
+            function D80927(){
+                let D80927 = Math.floor(Math.random()*80927)+1
+                alert(D80927);
+            }
+            function D7(){
+                let D7 = Math.floor(Math.random()*7)+1
+                alert(D7);
+            }
+        </script>
     </head>
 
     <body>
@@ -85,14 +127,14 @@
             <nav>
                 <h1 class="text">Navigation:</h1>
                 <ul class="top">
-                    <li class="top"><a id="currentPage" href="AboutMeHomePage.html">Home Page</a></li>
+                    <li class="top"><a href="AboutMeHomePage.html">Home Page</a></li>
                     <li class="top"><a href="AboutMeWhatIPlay.html">What I play</a></li>
                     <li class="top"><a href="AboutMeWhatIWatch.html">What I watch</a></li>
                     <li class="top"><a href="AboutMeWhatIListenTo.html">What I listen to</a></li>
                     <li class="top"><a href="AboutMeCats.html">Cats</a></li>
                     <li class="top"><a href="AboutMeJava1.html">Higher or Lower</a></li>
                     <li class="top"><a href="AboutMeJava2.html">Mad Lib</a></li>
-                    <li class="top"><a href="AboutMeJava3.html">Dice</a></li>
+                    <li class="top"><a id="currentPage" href="AboutMeJava3.html">Dice</a></li>
                     <li class="top"><a href="AboutMeJava4.html">Calculator</a></li>
                     <li class="top"><a href="AboutMeJava5.html">Reaction</a></li>
                 </ul>
@@ -110,13 +152,23 @@
             </aside>
 
             <main>
-                <p class="text">This is my about me page because it's the easiest "purpose" for this assignment, also I chose Comic Sans because it's the font everyone hates.</p>
-                <p class="text">In my free time I usually play games with friends, watch things, and listen to music. What I play and watch and listen to will be on other pages.</p>
-                <p class="text">Aside from playing games and watching stuff I don't do much, I like drawing and most forms of art.</p>
-                <p class="text">I'm going into the Arts and Communications academy because I like art.</p>
-                <p class="text">I have 6 cats, their names are Jenny, Tank, Chester, Daphne, Luna, and Shadow. Pictures can be found at the top.</p>
-                <p class="text">That's pretty much all the basic information I have, all other info can be found at the top, the side, and the bottom.</p>
-                <img id="me" src="Images/Me.jpeg">
+                <p>This is just pretty much what higher or lower does but simpler</p>
+                <br>
+                <input onclick="D100()" type="button" value="Roll a D100">
+                <br>
+                <input onclick="D6()" type="button" value="Roll a D6">
+                <br>
+                <input onclick="D20()" type="button" value="Roll a D20">
+                <br>
+                <input onclick="Coin()" type="button" value="Flip a coin">
+                <br>
+                <input onclick="D962()" type="button" value="Roll a D962">
+                <br>
+                <input onclick="D4()" type="button" value="Roll a D4">
+                <br>
+                <input onclick="D80927()" type="button" value="Roll a D80927">
+                <br>
+                <input onclick="D7()" type="button" value="Roll a D7">
             </main>
         
         </div>

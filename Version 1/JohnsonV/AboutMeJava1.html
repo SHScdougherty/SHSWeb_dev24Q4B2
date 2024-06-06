@@ -2,22 +2,22 @@
 <html>
 
     <head>
-        <title>Vinny's Website: Home Page</title>
+        <title>Vinny's Website: Higher or Lower</title>
         <link rel="icon" type="image/x-icon" href="Images/favicon.ico">
         <style>
             body{
                 display:flex;
                 flex-direction: column;
                 margin:0px;
-                background-color: black;
+                background-color: white;
             }
             .text{
-                color:white;
+                color: black;
                 font-family: "Comic Sans MS", "Comic Sans", cursive;
             }
             header{
                 min-height: 5vh;
-                background-color: darkgray;
+                background-color: grey;
             }
             main{
                 min-height: 85vh;
@@ -26,7 +26,7 @@
             }
             footer{
                 min-height: 10vh;
-                background-color: darkgray;
+                background-color: grey;
             }
             ul{
                 list-style-type: none;
@@ -36,7 +36,7 @@
                 padding-bottom:5px;
             }
             li:hover{
-                background-color:lightgray
+                background-color:darkgray
             }
             .top{
                 margin:5px;
@@ -47,7 +47,7 @@
                 display:flex
             }
             aside{
-                background-color: gray;
+                background-color: lightgray;
                 flex:1;
                 padding-left: 5px;
             }
@@ -56,12 +56,12 @@
                 padding-left:0px;
             }
             a{
-                color:chartreuse;
+                color:orchid;
                 font-family: "Comic Sans MS", "Comic Sans", cursive;
                 text-decoration: none;
             }
             a:hover{
-                color:green
+                color:purple
             }
             #me{
                 display: flex;
@@ -70,14 +70,66 @@
                 max-width: 25%;
             }
             #currentPage{
-                background-color: black;
+                background-color: white;
             }
             h1{
                 padding-left: 50px;
             }
-
+            .higher{
+                color: tomato
+            }
+            .lower{
+                color: teal
+            }
+            .correct{
+                color: olivedrab
+            }
 
         </style>
+        <script>
+            let answer = Math.floor(Math.random()*100)+1
+            let firstGuess = true;
+
+            function higherLower(){
+                const guess = Number(document.getElementById("guess").value);
+                const result = document.getElementById("result");
+                const prevGuesses = document.getElementById("prevGuesses");
+                let state;
+ 
+                if (firstGuess){
+                    prevGuesses.innerHTML = "Previous Guesses: "
+                    firstGuess = false;
+                } else{
+                    prevGuesses.innerHTML += ", "
+                }
+
+                if (guess > answer){
+                    state = "higher";
+                    result.innerHTML = "<h1>Your guess of " + "<span class='" + state + "'>" + guess + "</span>" + " is higher than the actual number.</h1>";
+                    
+                } else if (guess < answer){
+                    state = "lower";
+                    result.innerHTML = "<h1>Your guess of " + "<span class='" + state + "'>" + guess + "</span>" + " is lower than the actual number.</h1>";
+                   
+                } else{
+                    state = "correct";
+                    result.innerHTML = "<h1>" + "<span class='" + state + "'>" + guess + "</span>" +  " is correct!</h1>";
+                    
+                }
+                prevGuesses.innerHTML += "<span class='" + state + "'>" + guess + "</span>";
+                
+                
+
+
+                document.getElementById("guess").value = "";
+            }
+            function Reset(){
+                firstGuess = true;
+                answer = Math.floor(Math.random()*100)+1;
+                prevGuesses.innerHTML = "";
+                result.innerHTML = "";
+            }
+        </script>
     </head>
 
     <body>
@@ -85,12 +137,12 @@
             <nav>
                 <h1 class="text">Navigation:</h1>
                 <ul class="top">
-                    <li class="top"><a id="currentPage" href="AboutMeHomePage.html">Home Page</a></li>
+                    <li class="top"><a href="AboutMeHomePage.html">Home Page</a></li>
                     <li class="top"><a href="AboutMeWhatIPlay.html">What I play</a></li>
                     <li class="top"><a href="AboutMeWhatIWatch.html">What I watch</a></li>
                     <li class="top"><a href="AboutMeWhatIListenTo.html">What I listen to</a></li>
                     <li class="top"><a href="AboutMeCats.html">Cats</a></li>
-                    <li class="top"><a href="AboutMeJava1.html">Higher or Lower</a></li>
+                    <li class="top"><a id="currentPage" href="AboutMeJava1.html">Higher or Lower</a></li>
                     <li class="top"><a href="AboutMeJava2.html">Mad Lib</a></li>
                     <li class="top"><a href="AboutMeJava3.html">Dice</a></li>
                     <li class="top"><a href="AboutMeJava4.html">Calculator</a></li>
@@ -110,13 +162,18 @@
             </aside>
 
             <main>
-                <p class="text">This is my about me page because it's the easiest "purpose" for this assignment, also I chose Comic Sans because it's the font everyone hates.</p>
-                <p class="text">In my free time I usually play games with friends, watch things, and listen to music. What I play and watch and listen to will be on other pages.</p>
-                <p class="text">Aside from playing games and watching stuff I don't do much, I like drawing and most forms of art.</p>
-                <p class="text">I'm going into the Arts and Communications academy because I like art.</p>
-                <p class="text">I have 6 cats, their names are Jenny, Tank, Chester, Daphne, Luna, and Shadow. Pictures can be found at the top.</p>
-                <p class="text">That's pretty much all the basic information I have, all other info can be found at the top, the side, and the bottom.</p>
-                <img id="me" src="Images/Me.jpeg">
+                <h1 class="text">Higher or Lower</h1>
+            Guess a number from 1 to 100 <br>
+            <input id="guess" type="text"></input>
+            <input onclick="higherLower()" type="button" value="submit">
+            <input onclick="Reset()" type="button" value="reset">
+            <br>
+            <br>
+            <br>
+            <div id="result"></div>
+            <br>
+            <br>
+            <div id="prevGuesses"></div>
             </main>
         
         </div>
